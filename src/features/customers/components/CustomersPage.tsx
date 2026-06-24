@@ -1,4 +1,5 @@
 import { Users } from "lucide-react";
+import { CustomerList } from "./CustomerList";
 
 export function CustomersPage() {
   return (
@@ -7,9 +8,7 @@ export function CustomersPage() {
         <Users className="h-6 w-6" />
         <h1 className="text-2xl font-bold">Pelanggan</h1>
       </div>
-      <div className="rounded-lg border p-8 text-center text-muted-foreground">
-        Customer management akan tersedia di Sprint 6.
-      </div>
+      <CustomerList />
     </div>
   );
 }

@@ -47,7 +47,7 @@ export function AddonForm({
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<AddonFormData>({
+  } = useForm({
     resolver: zodResolver(addonSchema),
     defaultValues: {
       name: "",
@@ -77,8 +77,8 @@ export function AddonForm({
     }
   }, [open, addon, reset]);
 
-  const handleFormSubmit = async (data: AddonFormData) => {
-    await onSubmit(data);
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
+    await onSubmit(data as AddonFormData);
     onOpenChange(false);
   };
 

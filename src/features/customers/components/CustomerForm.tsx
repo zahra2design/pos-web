@@ -39,7 +39,7 @@ export function CustomerForm({
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<CustomerFormData>({
+  } = useForm({
     resolver: zodResolver(schema),
     defaultValues: { name: "", phone: "", email: "", birthday: "" },
   });
@@ -59,8 +59,8 @@ export function CustomerForm({
     }
   }, [open, customer, reset]);
 
-  const handleFormSubmit = async (data: CustomerFormData) => {
-    await onSubmit(data);
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
+    await onSubmit(data as CustomerFormData);
     onOpenChange(false);
   };
 

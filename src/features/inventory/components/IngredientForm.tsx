@@ -48,7 +48,7 @@ export function IngredientForm({
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<IngredientFormData>({
+  } = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
       name: "",
@@ -84,8 +84,8 @@ export function IngredientForm({
     }
   }, [open, ingredient, reset]);
 
-  const handleFormSubmit = async (data: IngredientFormData) => {
-    await onSubmit(data);
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
+    await onSubmit(data as IngredientFormData);
     onOpenChange(false);
   };
 

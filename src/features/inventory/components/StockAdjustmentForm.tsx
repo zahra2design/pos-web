@@ -47,7 +47,7 @@ export function StockAdjustmentForm({
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<StockAdjustmentFormData>({
+  } = useForm({
     resolver: zodResolver(schema),
     defaultValues: {
       ingredient_id: "",
@@ -71,8 +71,8 @@ export function StockAdjustmentForm({
     }
   }, [open, reset]);
 
-  const handleFormSubmit = async (data: StockAdjustmentFormData) => {
-    await onSubmit(data);
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
+    await onSubmit(data as StockAdjustmentFormData);
     onOpenChange(false);
   };
 

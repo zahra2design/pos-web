@@ -54,7 +54,7 @@ export function ProductForm({
     setValue,
     watch,
     formState: { errors, isSubmitting },
-  } = useForm<ProductFormData>({
+  } = useForm({
     resolver: zodResolver(productSchema),
     defaultValues: {
       name: "",
@@ -123,8 +123,8 @@ export function ProductForm({
     }
   };
 
-  const handleFormSubmit = async (data: ProductFormData) => {
-    const submitData = { ...data, image_url: imageUrl };
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
+    const submitData = { ...(data as ProductFormData), image_url: imageUrl };
     await onSubmit(submitData);
     onOpenChange(false);
   };

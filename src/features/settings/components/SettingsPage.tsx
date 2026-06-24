@@ -82,7 +82,7 @@ function OutletSettings() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<OutletFormData>({
+  } = useForm({
     resolver: zodResolver(outletSchema),
   });
 
@@ -114,19 +114,20 @@ function OutletSettings() {
     }
   };
 
-  const onSubmit = async (data: OutletFormData) => {
+  const onSubmit = async (data: Record<string, unknown>) => {
     if (!outlet) return;
     setSaving(true);
     setSuccess(false);
     try {
+      const formData = data as OutletFormData;
       await outletService.updateOutlet(outlet.id, {
-        name: data.name,
-        address: data.address || undefined,
-        phone: data.phone || undefined,
-        tax_rate: data.tax_rate,
-        service_charge_rate: data.service_charge_rate,
-        receipt_header: data.receipt_header || undefined,
-        receipt_footer: data.receipt_footer || undefined,
+        name: formData.name,
+        address: formData.address || undefined,
+        phone: formData.phone || undefined,
+        tax_rate: formData.tax_rate,
+        service_charge_rate: formData.service_charge_rate,
+        receipt_header: formData.receipt_header || undefined,
+        receipt_footer: formData.receipt_footer || undefined,
       });
       setSuccess(true);
       await loadOutlet();

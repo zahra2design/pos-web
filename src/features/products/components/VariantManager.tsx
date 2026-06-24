@@ -29,7 +29,7 @@ export function VariantManager({ productId }: VariantManagerProps) {
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<VariantFormData>({
+  } = useForm({
     resolver: zodResolver(variantSchema),
     defaultValues: { name: "", price_modifier: 0, is_default: false },
   });
@@ -72,11 +72,11 @@ export function VariantManager({ productId }: VariantManagerProps) {
     await loadVariants();
   };
 
-  const handleFormSubmit = async (data: VariantFormData) => {
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
     if (editingVariant) {
-      await variantService.updateVariant(editingVariant.id, data);
+      await variantService.updateVariant(editingVariant.id, data as VariantFormData);
     } else {
-      await variantService.createVariant(productId, data);
+      await variantService.createVariant(productId, data as VariantFormData);
     }
     setShowForm(false);
     await loadVariants();

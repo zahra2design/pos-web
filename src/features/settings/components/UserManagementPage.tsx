@@ -49,7 +49,7 @@ export function UserManagementPage() {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<CreateUserFormData>({
+  } = useForm({
     resolver: zodResolver(editingUser ? editUserSchema : createUserSchema),
   });
 
@@ -95,7 +95,7 @@ export function UserManagementPage() {
     reset();
   };
 
-  const onSubmit = async (data: CreateUserFormData) => {
+  const onSubmit = async (data: Record<string, unknown>) => {
     setSaving(true);
     try {
       if (editingUser) {

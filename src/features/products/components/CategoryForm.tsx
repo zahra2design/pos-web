@@ -39,7 +39,7 @@ export function CategoryForm({
     handleSubmit,
     reset,
     formState: { errors, isSubmitting },
-  } = useForm<CategoryFormData>({
+  } = useForm({
     resolver: zodResolver(categorySchema),
     defaultValues: {
       name: "",
@@ -69,8 +69,8 @@ export function CategoryForm({
     }
   }, [open, category, reset]);
 
-  const handleFormSubmit = async (data: CategoryFormData) => {
-    await onSubmit(data);
+  const handleFormSubmit = async (data: Record<string, unknown>) => {
+    await onSubmit(data as CategoryFormData);
     onOpenChange(false);
   };
 

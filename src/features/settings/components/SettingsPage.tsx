@@ -119,7 +119,7 @@ function OutletSettings() {
     setSaving(true);
     setSuccess(false);
     try {
-      const formData = data as OutletFormData;
+      const formData = data as unknown as OutletFormData;
       await outletService.updateOutlet(outlet.id, {
         name: formData.name,
         address: formData.address || undefined,

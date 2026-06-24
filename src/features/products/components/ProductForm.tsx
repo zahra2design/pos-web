@@ -124,7 +124,7 @@ export function ProductForm({
   };
 
   const handleFormSubmit = async (data: Record<string, unknown>) => {
-    const submitData = { ...(data as ProductFormData), image_url: imageUrl };
+    const submitData = { ...(data as unknown as ProductFormData), image_url: imageUrl };
     await onSubmit(submitData);
     onOpenChange(false);
   };

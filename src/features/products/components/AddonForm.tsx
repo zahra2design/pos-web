@@ -78,7 +78,7 @@ export function AddonForm({
   }, [open, addon, reset]);
 
   const handleFormSubmit = async (data: Record<string, unknown>) => {
-    await onSubmit(data as AddonFormData);
+    await onSubmit(data as unknown as AddonFormData);
     onOpenChange(false);
   };
 

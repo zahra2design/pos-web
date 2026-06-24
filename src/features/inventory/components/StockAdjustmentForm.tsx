@@ -72,7 +72,7 @@ export function StockAdjustmentForm({
   }, [open, reset]);
 
   const handleFormSubmit = async (data: Record<string, unknown>) => {
-    await onSubmit(data as StockAdjustmentFormData);
+    await onSubmit(data as unknown as StockAdjustmentFormData);
     onOpenChange(false);
   };
 

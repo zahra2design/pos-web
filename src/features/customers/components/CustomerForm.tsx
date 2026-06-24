@@ -60,7 +60,7 @@ export function CustomerForm({
   }, [open, customer, reset]);
 
   const handleFormSubmit = async (data: Record<string, unknown>) => {
-    await onSubmit(data as CustomerFormData);
+    await onSubmit(data as unknown as CustomerFormData);
     onOpenChange(false);
   };
 

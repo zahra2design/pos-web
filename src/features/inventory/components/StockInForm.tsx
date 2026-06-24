@@ -64,7 +64,7 @@ export function StockInForm({ open, onOpenChange, onSubmit }: StockInFormProps) 
   }, [open, reset]);
 
   const handleFormSubmit = async (data: Record<string, unknown>) => {
-    await onSubmit(data as StockInFormData);
+    await onSubmit(data as unknown as StockInFormData);
     onOpenChange(false);
   };
 

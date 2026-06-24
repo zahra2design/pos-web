@@ -70,7 +70,7 @@ export function CategoryForm({
   }, [open, category, reset]);
 
   const handleFormSubmit = async (data: Record<string, unknown>) => {
-    await onSubmit(data as CategoryFormData);
+    await onSubmit(data as unknown as CategoryFormData);
     onOpenChange(false);
   };
 

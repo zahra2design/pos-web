@@ -74,9 +74,9 @@ export function VariantManager({ productId }: VariantManagerProps) {
 
   const handleFormSubmit = async (data: Record<string, unknown>) => {
     if (editingVariant) {
-      await variantService.updateVariant(editingVariant.id, data as VariantFormData);
+      await variantService.updateVariant(editingVariant.id, data as unknown as VariantFormData);
     } else {
-      await variantService.createVariant(productId, data as VariantFormData);
+      await variantService.createVariant(productId, data as unknown as VariantFormData);
     }
     setShowForm(false);
     await loadVariants();

@@ -33,8 +33,6 @@ const editUserSchema = z.object({
   outlet_id: z.string().nullable().optional(),
 });
 
-type CreateUserFormData = z.infer<typeof createUserSchema>;
-
 export function UserManagementPage() {
   const [users, setUsers] = useState<UserWithOutlet[]>([]);
   const [outlets, setOutlets] = useState<{ id: string; name: string }[]>([]);
@@ -100,17 +98,17 @@ export function UserManagementPage() {
     try {
       if (editingUser) {
         await userService.updateUser(editingUser.id, {
-          name: data.name,
-          role: data.role,
-          outlet_id: data.outlet_id ?? null,
+          name: data.name as string,
+          role: data.role as string,
+          outlet_id: (data.outlet_id as string | null) ?? null,
         });
       } else {
         await userService.createUser({
-          email: data.email,
-          password: data.password,
-          name: data.name,
-          role: data.role,
-          outlet_id: data.outlet_id ?? null,
+          email: data.email as string,
+          password: data.password as string,
+          name: data.name as string,
+          role: data.role as string,
+          outlet_id: (data.outlet_id as string | null) ?? null,
         });
       }
       await loadData();

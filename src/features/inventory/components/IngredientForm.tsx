@@ -85,7 +85,7 @@ export function IngredientForm({
   }, [open, ingredient, reset]);
 
   const handleFormSubmit = async (data: Record<string, unknown>) => {
-    await onSubmit(data as IngredientFormData);
+    await onSubmit(data as unknown as IngredientFormData);
     onOpenChange(false);
   };
 

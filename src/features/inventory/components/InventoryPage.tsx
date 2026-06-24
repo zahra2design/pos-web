@@ -10,7 +10,6 @@ import {
   ingredientService,
 } from "../services/inventory.service";
 import { productService } from "@/features/products/services/product.service";
-import { formatCurrency } from "@/lib/utils/format-currency";
 import { formatDate } from "@/lib/utils/format-date";
 import type { ProductWithRelations } from "@/features/products/types/product.types";
 import type {

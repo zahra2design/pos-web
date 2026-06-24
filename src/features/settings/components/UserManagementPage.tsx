@@ -26,13 +26,14 @@ const createUserSchema = z.object({
 });
 
 const editUserSchema = z.object({
+  email: z.string().email("Email tidak valid").optional(),
+  password: z.string().min(6, "Password minimal 6 karakter").optional(),
   name: z.string().min(2, "Nama minimal 2 karakter"),
   role: z.enum(["owner", "manager", "cashier", "barista", "inventory_staff"]),
   outlet_id: z.string().nullable().optional(),
 });
 
 type CreateUserFormData = z.infer<typeof createUserSchema>;
-type EditUserFormData = z.infer<typeof editUserSchema>;
 
 export function UserManagementPage() {
   const [users, setUsers] = useState<UserWithOutlet[]>([]);

@@ -17,8 +17,8 @@ import type { StockInFormData } from "../types/inventory.types";
 
 const schema = z.object({
   ingredient_id: z.string().min(1, "Pilih bahan"),
-  quantity: z.coerce.number().min(0.01, "Jumlah harus positif"),
-  cost_per_unit: z.coerce.number().min(0).default(0),
+  quantity: z.number().min(0.01, "Jumlah harus positif"),
+  cost_per_unit: z.number().min(0).default(0),
   supplier: z.string().optional(),
   notes: z.string().optional(),
 });

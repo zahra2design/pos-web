@@ -1,4 +1,4 @@
-import type { Product, ProductVariant, Addon, Category } from "@/types/database.types";
+import type { Product, ProductVariant, Category } from "@/types/database.types";
 
 export interface ProductWithRelations extends Product {
   category?: Category;

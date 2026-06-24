@@ -5,7 +5,6 @@ import { formatCurrency } from "@/lib/utils/format-currency";
 import {
   Plus,
   Edit2,
-  Trash2,
   Search,
   Loader2,
   Package,

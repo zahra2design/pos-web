@@ -9,7 +9,6 @@ import {
   Trash2,
   Search,
   Loader2,
-  Users,
   Eye,
 } from "lucide-react";
 import type { Customer } from "@/types/database.types";

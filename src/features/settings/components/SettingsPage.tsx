@@ -63,8 +63,8 @@ const outletSchema = z.object({
   name: z.string().min(1, "Nama outlet wajib diisi"),
   address: z.string().optional(),
   phone: z.string().optional(),
-  tax_rate: z.coerce.number().min(0).max(100),
-  service_charge_rate: z.coerce.number().min(0).max(100),
+  tax_rate: z.number().min(0).max(100),
+  service_charge_rate: z.number().min(0).max(100),
   receipt_header: z.string().optional(),
   receipt_footer: z.string().optional(),
 });
@@ -121,12 +121,12 @@ function OutletSettings() {
     try {
       await outletService.updateOutlet(outlet.id, {
         name: data.name,
-        address: data.address || null,
-        phone: data.phone || null,
+        address: data.address || undefined,
+        phone: data.phone || undefined,
         tax_rate: data.tax_rate,
         service_charge_rate: data.service_charge_rate,
-        receipt_header: data.receipt_header || null,
-        receipt_footer: data.receipt_footer || null,
+        receipt_header: data.receipt_header || undefined,
+        receipt_footer: data.receipt_footer || undefined,
       });
       setSuccess(true);
       await loadOutlet();

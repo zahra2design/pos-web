@@ -8,7 +8,6 @@ import {
   Trash2,
   Search,
   Loader2,
-  Puzzle,
 } from "lucide-react";
 import type { Addon } from "@/types/database.types";
 import type { AddonFormData } from "../types/product.types";

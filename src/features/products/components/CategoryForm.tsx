@@ -17,7 +17,7 @@ import type { CategoryFormData } from "../types/product.types";
 const categorySchema = z.object({
   name: z.string().min(1, "Nama kategori wajib diisi"),
   description: z.string().optional(),
-  display_order: z.coerce.number().int().min(0).default(0),
+  display_order: z.number().int().min(0).default(0),
   is_active: z.boolean().default(true),
 });
 

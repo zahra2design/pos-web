@@ -184,7 +184,7 @@ export function DashboardPage() {
                 }
               />
               <Tooltip
-                formatter={(value: number) => formatCurrency(value)}
+                formatter={(value) => formatCurrency(Number(value))}
                 labelFormatter={(l) => `Tanggal: ${l}`}
               />
               <Line
@@ -211,7 +211,7 @@ export function DashboardPage() {
                 width={100}
                 tick={{ fontSize: 11 }}
               />
-              <Tooltip formatter={(value: number) => `${value} item`} />
+              <Tooltip formatter={(value) => `${value} item`} />
               <Bar dataKey="quantity" fill="#171717" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
@@ -233,7 +233,7 @@ export function DashboardPage() {
                   dataKey="revenue"
                   nameKey="name"
                   label={({ name, percent }) =>
-                    `${name} ${(percent * 100).toFixed(0)}%`
+                    `${name} ${((percent ?? 0) * 100).toFixed(0)}%`
                   }
                   labelLine={false}
                 >
@@ -245,7 +245,7 @@ export function DashboardPage() {
                   ))}
                 </Pie>
                 <Tooltip
-                  formatter={(value: number) => formatCurrency(value)}
+                  formatter={(value) => formatCurrency(Number(value))}
                 />
               </PieChart>
             </ResponsiveContainer>

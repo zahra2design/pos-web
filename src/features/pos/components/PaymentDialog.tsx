@@ -35,12 +35,12 @@ export function PaymentDialog({
   const change = received - total;
   const isValid = received >= total;
 
-  const quickAmounts = [
+  const quickAmounts = [...new Set([
     Math.ceil(total / 1000) * 1000,
     Math.ceil(total / 5000) * 5000,
     Math.ceil(total / 10000) * 10000,
     Math.ceil(total / 50000) * 50000,
-  ];
+  ])].sort((a, b) => a - b);
 
   const handlePayment = async () => {
     if (!isValid) return;

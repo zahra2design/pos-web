@@ -1,4 +1,3 @@
-import { formatCurrency } from "@/lib/utils/format-currency";
 import { OrderTimer } from "./OrderTimer";
 import {
   ChevronRight,

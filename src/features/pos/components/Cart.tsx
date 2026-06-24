@@ -20,7 +20,6 @@ export function Cart() {
     orderType,
     tableNumber,
     discountType,
-    discountValue,
     removeItem,
     updateQuantity,
     updateNotes,

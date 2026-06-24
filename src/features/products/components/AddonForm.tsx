@@ -16,7 +16,7 @@ import type { AddonFormData } from "../types/product.types";
 
 const addonSchema = z.object({
   name: z.string().min(1, "Nama addon wajib diisi"),
-  price: z.coerce.number().min(0, "Harga harus positif"),
+  price: z.number().min(0, "Harga harus positif"),
   category: z.string().min(1, "Kategori wajib dipilih"),
   is_active: z.boolean().default(true),
 });

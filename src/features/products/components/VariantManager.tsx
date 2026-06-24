@@ -10,7 +10,7 @@ import type { VariantFormData } from "../types/product.types";
 
 const variantSchema = z.object({
   name: z.string().min(1, "Nama varian wajib diisi"),
-  price_modifier: z.coerce.number().default(0),
+  price_modifier: z.number().default(0),
   is_default: z.boolean().default(false),
 });
 

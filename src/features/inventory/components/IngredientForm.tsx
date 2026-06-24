@@ -24,9 +24,9 @@ const UNITS = [
 const schema = z.object({
   name: z.string().min(1, "Nama wajib diisi"),
   unit: z.string().min(1, "Satuan wajib dipilih"),
-  current_stock: z.coerce.number().min(0).default(0),
-  minimum_stock: z.coerce.number().min(0).default(0),
-  cost_per_unit: z.coerce.number().min(0).default(0),
+  current_stock: z.number().min(0).default(0),
+  minimum_stock: z.number().min(0).default(0),
+  cost_per_unit: z.number().min(0).default(0),
   is_active: z.boolean().default(true),
 });
 

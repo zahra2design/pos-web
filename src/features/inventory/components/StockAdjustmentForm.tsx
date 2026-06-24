@@ -24,7 +24,7 @@ const REASONS = [
 
 const schema = z.object({
   ingredient_id: z.string().min(1, "Pilih bahan"),
-  quantity: z.coerce.number(),
+  quantity: z.number(),
   reason: z.string().min(1, "Pilih alasan"),
   notes: z.string().optional(),
 });
